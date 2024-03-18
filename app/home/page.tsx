@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 import { CSSProperties } from "react";
 
@@ -125,10 +126,19 @@ const IndexPage: React.FC = () => {
               }
             >
               <button
-                className="text-[20px]"
                 onClick={() => snapToSection(section.id, setCurrentSection)}
               >
-                {"*"}
+                <Image
+                  src={
+                    currentSection === section.id
+                      ? "icons/RectIn.svg"
+                      : "icons/RectOut.svg"
+                  }
+                  alt="Vercel Logo"
+                  width={45}
+                  height={12}
+                  priority
+                />
               </button>
             </li>
           ))}
