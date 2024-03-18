@@ -1,4 +1,5 @@
 "use client";
+import "./styles.css";
 
 import { useState, useEffect } from "react";
 import Head from "next/head";
@@ -116,6 +117,14 @@ const IndexPage: React.FC = () => {
         {/* Add any other necessary meta tags */}
       </Head>
 
+      <nav className="fixed top-0 right-0  shadow-lg z-50 flex flex-row justify-between pr-10 pt-10 space-x-8 text-2xl ">
+        <a class="hover">The Story</a>
+        <a class="hover">Discord</a>
+        <a class="hover">Mods</a>
+        <a class="hover">Wiki</a>
+        <a class="hover">Play now</a>
+      </nav>
+
       <nav className="fixed top-0 left-0 h-full shadow-lg z-50 flex flex-col justify-center pl-10">
         <ul className="flex flex-col items-start space-y-4">
           {sectionsArray.map((section, index) => (
@@ -134,7 +143,7 @@ const IndexPage: React.FC = () => {
                       ? "icons/RectIn.svg"
                       : "icons/RectOut.svg"
                   }
-                  alt="Vercel Logo"
+                  alt="*"
                   width={45}
                   height={12}
                   priority
