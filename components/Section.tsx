@@ -18,6 +18,10 @@ const Section: React.FC<{ id: string; background?: string }> = ({
       className="h-screen flex items-center justify-center"
       style={sectionStyle}
     >
+      <div
+        className="absolute"
+        style={{ backgroundImage: "/aroundLine.svg" }}
+      ></div>
       {children}
     </section>
   );
