@@ -13,18 +13,122 @@ const sectionsArray = [
   {
     id: 'section0',
     background: '/images/back-0.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
   },
   {
     id: 'section1',
     background: '/images/back-1.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
   },
   {
     id: 'section2',
     background: '/images/back-2.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
   },
   {
     id: 'section3',
     background: '/images/back-3.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
   },
 ];
 
@@ -96,8 +200,23 @@ const IndexPage: React.FC = () => {
   };
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [imageArrayModal, setImageArrayModal] = useState({
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-0.jpg',
+    image3: '/images/back-0.jpg',
+  });
 
-  const toggleModal = () => {
+  const toggleModal = (imageArray: {
+    image1: string;
+    image2: string;
+    image3: string;
+  }) => {
+    setImageArrayModal({
+      image1: imageArray.image1,
+      image2: imageArray.image2,
+      image3: imageArray.image3,
+    });
+
     setModalOpen(!modalOpen);
   };
 
@@ -141,9 +260,9 @@ const IndexPage: React.FC = () => {
 
       {modalOpen && (
         <ImageView
-          image1='/images/back-0.jpg'
-          image2='/images/back-1.jpg'
-          image3='/images/back-2.jpg'
+          image1={imageArrayModal.image1}
+          image2={imageArrayModal.image2}
+          image3={imageArrayModal.image3}
           onClose={toggleModal}
         />
       )}
@@ -160,51 +279,55 @@ const IndexPage: React.FC = () => {
               will shine the way...
             </p>
             <div className='grid grid-cols-2 grid-rows-2 gap-8 mt-[4rem]'>
-              <div onClick={toggleModal}>
+              <div>
                 <Image
                   style={outline}
-                  src={'/images/back-0.jpg'}
+                  src={section.image1}
                   alt='*'
                   width={270}
                   height={140}
                   priority
                   className='cursor-pointer'
+                  onClick={() => toggleModal(section.imageArr.image1)}
                 />
                 <p className='flex justify-center'>Long story</p>
               </div>
               <div>
                 <Image
                   style={outline}
-                  src={'/images/back-1.jpg'}
+                  src={section.image2}
                   alt='*'
                   width={270}
                   height={140}
                   priority
                   className='cursor-pointer'
+                  onClick={() => toggleModal(section.imageArr.image2)}
                 />
                 <p className='flex justify-center'>Long story</p>
               </div>
               <div>
                 <Image
                   style={outline}
-                  src={'/images/back-2.jpg'}
+                  src={section.image3}
                   alt='*'
                   width={270}
                   height={140}
                   priority
                   className='cursor-pointer'
+                  onClick={() => toggleModal(section.imageArr.image3)}
                 />
                 <p className='flex justify-center'>Long story</p>
               </div>
               <div>
                 <Image
                   style={outline}
-                  src={'/images/back-3.jpg'}
+                  src={section.image4}
                   alt='*'
                   width={270}
                   height={140}
                   priority
                   className='cursor-pointer'
+                  onClick={() => toggleModal(section.imageArr.image4)}
                 ></Image>
                 <p className='flex justify-center'>Long story</p>
               </div>

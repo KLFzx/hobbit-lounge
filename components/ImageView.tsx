@@ -15,7 +15,7 @@ const ImageView: React.FC<{
 }> = ({ image1, image2, image3, onClose }) => {
   return (
     <div
-      className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50'
+      className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50 '
       style={outline}
     >
       <div
