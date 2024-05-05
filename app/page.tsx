@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { CSSProperties } from 'react';
+import ImageView from '@/components/ImageView';
 
 import Section from '@/components/Section';
 import Navbar from '@/components/Navbar';
@@ -94,6 +95,12 @@ const IndexPage: React.FC = () => {
     outlineOffset: '-10px',
   };
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
   return (
     <div>
       <Head>
@@ -132,6 +139,15 @@ const IndexPage: React.FC = () => {
         </ul>
       </nav>
 
+      {modalOpen && (
+        <ImageView
+          image1='/images/back-0.jpg'
+          image2='/images/back-1.jpg'
+          image3='/images/back-2.jpg'
+          onClose={toggleModal}
+        />
+      )}
+
       {sectionsArray.map((section, index) => (
         <Section key={index} id={section.id} background={section.background}>
           <div className='h-screen w-screen flex flex-col items-end text-right  font-thin text-white mt-[10rem] mr-[3rem]'>
@@ -144,7 +160,7 @@ const IndexPage: React.FC = () => {
               will shine the way...
             </p>
             <div className='grid grid-cols-2 grid-rows-2 gap-8 mt-[4rem]'>
-              <div>
+              <div onClick={toggleModal}>
                 <Image
                   style={outline}
                   src={'/images/back-0.jpg'}
