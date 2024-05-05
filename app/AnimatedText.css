@@ -1,0 +1,18 @@
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation to the text element */
+.slide-from-right {
+  animation: slideFromRight 1s ease forwards;
+}
+.slide-from-right-header {
+  animation: slideFromRight 1.7s ease forwards;
+}

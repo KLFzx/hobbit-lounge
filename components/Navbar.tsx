@@ -1,5 +1,6 @@
 import React from 'react';
 import './stylesNavbar.css';
+import OverlayBox from './OverlayBox';
 
 import { CSSProperties } from 'react';
 
@@ -17,13 +18,28 @@ const Navbar: React.FC<{ id: string; background?: string }> = ({
 
   return (
     <nav className='fixed top-0 right-0  shadow-lg z-50 flex flex-row justify-between pr-10 pt-10 space-x-8 text-1xl font-regular'>
-      <a class='hover'>The Story</a>
-      <a class='hover' href='/discord'>
+      <div className='group'>
+        <a className='hover group-hover'>The Story</a>
+        <OverlayBox>
+          <p>Coming soon...</p>
+        </OverlayBox>
+      </div>
+      <a className='hover' href='/discord'>
         Discord
       </a>
-      <a class='hover'>Mods</a>
-      <a class='hover'>Wiki</a>
-      <a class='hover'>Play now</a>
+      <div className='group'>
+        <a className='hover group-hover'>Mods</a>
+        <OverlayBox>
+          <p>Coming soon...</p>
+        </OverlayBox>
+      </div>
+      <div className='group'>
+        <a className='hover group-hover'>Wiki</a>
+        <OverlayBox>
+          <p>Coming soon...</p>
+        </OverlayBox>
+      </div>
+      <a className='hover'>Play now</a>
     </nav>
   );
 };

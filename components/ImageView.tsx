@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CSSProperties } from 'react';
 import Image from 'next/image';
 const outline: CSSProperties = {
@@ -13,6 +13,12 @@ const ImageView: React.FC<{
   image3: string;
   onClose: () => void;
 }> = ({ image1, image2, image3, onClose }) => {
+  const [background, setBackground] = useState(image1);
+
+  const changeBackground = (image: string) => {
+    setBackground(image);
+  };
+
   return (
     <div
       className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50 '
@@ -21,9 +27,10 @@ const ImageView: React.FC<{
       <div
         className='flex justify-start items-end h-screen w-screen'
         style={{
-          backgroundImage: `url(${image1})`,
+          backgroundImage: `url(${background})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          transition: 'background-image 0.5s ease',
         }}
       >
         <Image
@@ -58,6 +65,7 @@ const ImageView: React.FC<{
               alt={''}
               style={outline}
               className='cursor-pointer'
+              onClick={() => changeBackground(image1)}
             ></Image>
             <Image
               src={image2}
@@ -66,6 +74,7 @@ const ImageView: React.FC<{
               alt={''}
               style={outline}
               className='cursor-pointer'
+              onClick={() => changeBackground(image2)}
             ></Image>
             <Image
               src={image3}
@@ -74,6 +83,7 @@ const ImageView: React.FC<{
               alt={''}
               style={outline}
               className='cursor-pointer'
+              onClick={() => changeBackground(image3)}
             ></Image>
           </div>
         </div>
