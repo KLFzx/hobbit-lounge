@@ -168,6 +168,7 @@ const IndexPage: React.FC = () => {
                   width={270}
                   height={140}
                   priority
+                  className='cursor-pointer'
                 />
                 <p className='flex justify-center'>Long story</p>
               </div>
@@ -179,6 +180,7 @@ const IndexPage: React.FC = () => {
                   width={270}
                   height={140}
                   priority
+                  className='cursor-pointer'
                 />
                 <p className='flex justify-center'>Long story</p>
               </div>
@@ -190,6 +192,7 @@ const IndexPage: React.FC = () => {
                   width={270}
                   height={140}
                   priority
+                  className='cursor-pointer'
                 />
                 <p className='flex justify-center'>Long story</p>
               </div>
@@ -201,6 +204,7 @@ const IndexPage: React.FC = () => {
                   width={270}
                   height={140}
                   priority
+                  className='cursor-pointer'
                 ></Image>
                 <p className='flex justify-center'>Long story</p>
               </div>

@@ -30,7 +30,7 @@ const ImageView: React.FC<{
           src={'/icons/Cross.svg'}
           width={30}
           height={30}
-          className='absolute right-10 top-10'
+          className='absolute right-10 top-10 cursor-pointer'
           onClick={onClose}
         ></Image>
         <div className='ml-[3rem] mb-[3rem]'>
@@ -57,6 +57,7 @@ const ImageView: React.FC<{
               width={240}
               alt={''}
               style={outline}
+              className='cursor-pointer'
             ></Image>
             <Image
               src={image2}
@@ -64,6 +65,7 @@ const ImageView: React.FC<{
               width={240}
               alt={''}
               style={outline}
+              className='cursor-pointer'
             ></Image>
             <Image
               src={image3}
@@ -71,6 +73,7 @@ const ImageView: React.FC<{
               width={240}
               alt={''}
               style={outline}
+              className='cursor-pointer'
             ></Image>
           </div>
         </div>
