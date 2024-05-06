@@ -4,18 +4,7 @@ import OverlayBox from './OverlayBox';
 
 import { CSSProperties } from 'react';
 
-const Navbar: React.FC<{ id: string; background?: string }> = ({
-  id,
-  background,
-  children,
-}) => {
-  const sectionStyle: CSSProperties = {
-    backgroundImage: background ? `url(${background})` : 'none',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    transition: 'opacity 0.5s ease-in-out', // Adding transition property
-  };
-
+const Navbar: React.FC<{}> = ({}) => {
   return (
     <nav className='fixed top-0 right-0  shadow-lg z-50 flex flex-row justify-between pr-10 pt-10 space-x-8 text-1xl font-regular'>
       <div className='group'>

@@ -1,12 +1,13 @@
 import React from 'react';
+import { CSSProperties } from 'react';
 
-const Section: React.FC<{ id: string; background?: string }> = ({
+const Section: React.FC<{ id: string; background: string; children: any }> = ({
   id,
   background,
   children,
 }) => {
   const sectionStyle: CSSProperties = {
-    backgroundImage: background ? `url(${background})` : 'none',
+    backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     transition: 'opacity 0.5s ease-in-out', // Adding transition property

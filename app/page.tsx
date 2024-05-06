@@ -15,6 +15,32 @@ const sectionsArray = [
   {
     id: 'main',
     background: '/images/back-0.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
   },
   {
     id: 'section0',
@@ -298,7 +324,7 @@ const IndexPage: React.FC = () => {
           image1={imageArrayModal.image1}
           image2={imageArrayModal.image2}
           image3={imageArrayModal.image3}
-          onClose={toggleModal}
+          onClose={() => setModalOpen(!modalOpen)}
         />
       )}
       {sectionsArray.map((section, index) =>

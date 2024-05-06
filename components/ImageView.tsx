@@ -37,6 +37,7 @@ const ImageView: React.FC<{
           src={'/icons/Cross.svg'}
           width={30}
           height={30}
+          alt={'X'}
           className='absolute right-10 top-10 cursor-pointer'
           onClick={onClose}
         ></Image>
