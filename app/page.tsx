@@ -43,6 +43,36 @@ const sectionsArray = [
     },
   },
   {
+    id: 'description',
+    background: '/images/back-4.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
+  },
+  {
     id: 'section0',
     background: '/images/back-0.jpg',
     image1: '/images/back-0.jpg',
@@ -135,6 +165,36 @@ const sectionsArray = [
   {
     id: 'section3',
     background: '/images/back-3.jpg',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+      },
+    },
+  },
+  {
+    id: 'playnow',
+    background: '/images/lightcaves.png',
     image1: '/images/back-0.jpg',
     image2: '/images/back-1.jpg',
     image3: '/images/back-2.jpg',
@@ -290,7 +350,7 @@ const IndexPage: React.FC = () => {
 
       <Navbar></Navbar>
 
-      <nav className='fixed top-0 left-0 h-full shadow-lg z-50 flex flex-col justify-center pl-10'>
+      <nav className='fixed top-0 left-0 h-full z-50 flex flex-col justify-center pl-10'>
         <ul className='flex flex-col items-start space-y-4'>
           {sectionsArray.map((section, index) => (
             <li
@@ -328,7 +388,141 @@ const IndexPage: React.FC = () => {
         />
       )}
       {sectionsArray.map((section, index) =>
-        section.id !== 'main' ? (
+        section.id === 'main' ? (
+          <Section key={index} id={section.id} background={section.background}>
+            <div className='flex h-screen w-screen justify-center items-end flex-col'>
+              <div className='flex flex-col items-center mr-[8rem]'>
+                <Image
+                  src={'/images/logo.png'}
+                  height={340}
+                  width={440}
+                  alt={''}
+                ></Image>
+                <p>A project, driven by community</p>
+                <div className='flex items-center justify-center gap-8 mt-[3rem]'>
+                  <Image
+                    src={'/icons/PlayNow.svg'}
+                    height={140}
+                    width={150}
+                    alt={''}
+                  ></Image>
+                  <h1>Watch trailer</h1>
+                </div>
+              </div>
+            </div>
+            <p className='font-thin absolute bottom-10 text-yellow-400'>
+              scroll down
+            </p>
+            <Image
+              src={'/icons/LineDown.svg'}
+              height={60}
+              width={0.5}
+              alt={''}
+              className='absolute bottom-0'
+            ></Image>
+          </Section>
+        ) : section.id === 'description' ? (
+          <Section key={index} id={section.id} background={section.background}>
+            Description
+          </Section>
+        ) : section.id === 'playnow' ? (
+          <Section key={index} id={section.id} background={section.background}>
+            <div className='h-screen w-screen pt-[10rem] flex flex-col items-center justify-start text-black'>
+              <h1 className='text-2xl mb-[2rem]'>Select your game version</h1>
+              <div className='flex'>
+                <Image
+                  src={'/images/hobbit.jpg'}
+                  alt='*'
+                  width={400}
+                  height={140}
+                  priority
+                  className='cursor-pointer'
+                  onClick={() =>
+                    window.open(
+                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      '_blank'
+                    )
+                  }
+                />
+                <Image
+                  src={'/images/hobbit.jpg'}
+                  alt='*'
+                  width={400}
+                  height={140}
+                  priority
+                  className='cursor-pointer'
+                  onClick={() =>
+                    window.open(
+                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      '_blank'
+                    )
+                  }
+                />
+                <Image
+                  src={'/images/hobbit.jpg'}
+                  alt='*'
+                  width={400}
+                  height={140}
+                  priority
+                  className='cursor-pointer'
+                  onClick={() =>
+                    window.open(
+                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      '_blank'
+                    )
+                  }
+                />
+              </div>
+              <p className='text-1xl mt-[2rem]'>
+                Explore the world of The Hobbit via various platfroms
+              </p>
+              <div className='flex gap-20 justify-center items-center mt-[5rem]'>
+                <Image
+                  src={'/icons/ps2.png'}
+                  alt='*'
+                  width={200}
+                  height={140}
+                  priority
+                  className='cursor-pointer'
+                  onClick={() =>
+                    window.open(
+                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      '_blank'
+                    )
+                  }
+                />
+                <Image
+                  src={'/icons/gamecube.png'}
+                  alt='*'
+                  width={200}
+                  height={140}
+                  priority
+                  className='cursor-pointer'
+                  onClick={() =>
+                    window.open(
+                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      '_blank'
+                    )
+                  }
+                />
+                <Image
+                  src={'/icons/xbox.png'}
+                  alt='*'
+                  width={200}
+                  height={140}
+                  priority
+                  className='cursor-pointer'
+                  onClick={() =>
+                    window.open(
+                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      '_blank'
+                    )
+                  }
+                />
+              </div>
+            </div>
+          </Section>
+        ) : (
           <Section key={index} id={section.id} background={section.background}>
             <div className='h-screen w-screen flex flex-col items-end text-right  font-thin text-white mt-[10rem] mr-[3rem]'>
               <h1 className=' text-4xl mt-[3rem]'>Open World</h1>
@@ -394,39 +588,6 @@ const IndexPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </Section>
-        ) : (
-          <Section key={index} id={section.id} background={section.background}>
-            <div className='flex h-screen w-screen justify-center items-end flex-col'>
-              <div className='flex flex-col items-center mr-[8rem]'>
-                <Image
-                  src={'/images/logo.png'}
-                  height={340}
-                  width={440}
-                  alt={''}
-                ></Image>
-                <p>A project, driven by community</p>
-                <div className='flex items-center justify-center gap-8 mt-[3rem]'>
-                  <Image
-                    src={'/icons/PlayNow.svg'}
-                    height={140}
-                    width={150}
-                    alt={''}
-                  ></Image>
-                  <h1>Watch trailer</h1>
-                </div>
-              </div>
-            </div>
-            <p className='font-thin absolute bottom-10 text-yellow-400'>
-              scroll down
-            </p>
-            <Image
-              src={'/icons/LineDown.svg'}
-              height={60}
-              width={0.5}
-              alt={''}
-              className='absolute bottom-0'
-            ></Image>
           </Section>
         )
       )}
