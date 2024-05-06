@@ -44,7 +44,7 @@ const sectionsArray = [
   },
   {
     id: 'description',
-    background: '/images/back-4.jpg',
+    background: '/images/lightcaves.png',
     image1: '/images/back-0.jpg',
     image2: '/images/back-1.jpg',
     image3: '/images/back-2.jpg',
@@ -348,7 +348,7 @@ const IndexPage: React.FC = () => {
         {/* Add any other necessary meta tags */}
       </Head>
 
-      <Navbar></Navbar>
+      <Navbar id={5}></Navbar>
 
       <nav className='fixed top-0 left-0 h-full z-50 flex flex-col justify-center pl-10'>
         <ul className='flex flex-col items-start space-y-4'>
@@ -429,49 +429,46 @@ const IndexPage: React.FC = () => {
           <Section key={index} id={section.id} background={section.background}>
             <div className='h-screen w-screen pt-[10rem] flex flex-col items-center justify-start text-black'>
               <h1 className='text-2xl mb-[2rem]'>Select your game version</h1>
-              <div className='flex'>
-                <Image
-                  src={'/images/hobbit.jpg'}
-                  alt='*'
-                  width={400}
-                  height={140}
-                  priority
-                  className='cursor-pointer'
-                  onClick={() =>
-                    window.open(
-                      'https://github.com/hobbit-kingdom/hobbit-versions',
-                      '_blank'
-                    )
-                  }
-                />
-                <Image
-                  src={'/images/hobbit.jpg'}
-                  alt='*'
-                  width={400}
-                  height={140}
-                  priority
-                  className='cursor-pointer'
-                  onClick={() =>
-                    window.open(
-                      'https://github.com/hobbit-kingdom/hobbit-versions',
-                      '_blank'
-                    )
-                  }
-                />
-                <Image
-                  src={'/images/hobbit.jpg'}
-                  alt='*'
-                  width={400}
-                  height={140}
-                  priority
-                  className='cursor-pointer'
-                  onClick={() =>
-                    window.open(
-                      'https://github.com/hobbit-kingdom/hobbit-versions',
-                      '_blank'
-                    )
-                  }
-                />
+              <div className='flex mx-[8rem]'>
+                <div className='flex justify-center'>
+                  <img
+                    src={'/images/hobbit.jpg'}
+                    alt='*'
+                    className='max-w-full h-auto cursor-pointer'
+                    onClick={() =>
+                      window.open(
+                        'https://github.com/hobbit-kingdom/hobbit-versions',
+                        '_blank'
+                      )
+                    }
+                  />
+                </div>
+                <div className='flex justify-center'>
+                  <img
+                    src={'/images/hobbit.jpg'}
+                    alt='*'
+                    className='max-w-full h-auto cursor-pointer'
+                    onClick={() =>
+                      window.open(
+                        'https://github.com/hobbit-kingdom/hobbit-versions',
+                        '_blank'
+                      )
+                    }
+                  />
+                </div>
+                <div className='flex justify-center'>
+                  <img
+                    src={'/images/hobbit.jpg'}
+                    alt='*'
+                    className='max-w-full h-auto cursor-pointer'
+                    onClick={() =>
+                      window.open(
+                        'https://github.com/hobbit-kingdom/hobbit-versions',
+                        '_blank'
+                      )
+                    }
+                  />
+                </div>
               </div>
               <p className='text-1xl mt-[2rem]'>
                 Explore the world of The Hobbit via various platfroms

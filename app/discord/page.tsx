@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Page: React.FC = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar id={2}></Navbar>
       <Section id={'discord'} background={'/images/back-2.jpg'}>
         <div className='h-[30rem] w-[40rem] bg-black bg-opacity-60 flex flex-col items-center p-10'>
           <div className='flex justify-between items-center w-full'>
