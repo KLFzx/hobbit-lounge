@@ -11,8 +11,10 @@ const ImageView: React.FC<{
   image1: string;
   image2: string;
   image3: string;
+  title: string;
+  desc: string;
   onClose: () => void;
-}> = ({ image1, image2, image3, onClose }) => {
+}> = ({ image1, image2, image3, title, desc, onClose }) => {
   const [background, setBackground] = useState(image1);
 
   const changeBackground = (image: string) => {
@@ -43,20 +45,8 @@ const ImageView: React.FC<{
         ></Image>
         <div className='ml-[3rem] mb-[3rem]'>
           <div className='bg-black mb-[3rem] bg-opacity-50 p-4 max-w-[45rem]'>
-            <h1 className=' text-3xl mb-4'>Lake Town</h1>
-            <p className='text-sm font-thin'>
-              Beautiful city situated on the lake. People are fishing and
-              transporting supplies to variety of places. The most interesting
-              things are net runners who are constantly checking their tents.
-              Nestled beside the serene expanse of a glistening lake, this
-              beautiful city captures the essence industriousness in perfect
-              harmony. The picturesque setting is not just a visual treat. It's
-              a vibrant hub of activity, with its residents engaging in a myriad
-              of tasks that bring life to the landscape. Every day, the lake's
-              surface ripples with the excitement of avid fishermen, patiently
-              waiting for their catch, their hopeful eyes reflecting the dancing
-              sunlight to very corner flourishes with vitality.
-            </p>
+            <h1 className=' text-3xl mb-4'>{title}</h1>
+            <p className='text-sm font-thin'>{desc}</p>
           </div>
           <div className='flex gap-8'>
             <Image

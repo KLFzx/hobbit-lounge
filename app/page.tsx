@@ -8,221 +8,9 @@ import ImageView from '@/components/ImageView';
 
 import Section from '@/components/Section';
 import Navbar from '@/components/Navbar';
-
+import { sectionsArray } from '@/components/variables/sectionsArray';
 import './AnimatedText.css';
-
-const sectionsArray = [
-  {
-    id: 'main',
-    background: '/images/back-0.jpg',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-  {
-    id: 'description',
-    background: '/images/lightcaves.png',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-  {
-    id: 'section0',
-    background: '/images/back-0.jpg',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-  {
-    id: 'section1',
-    background: '/images/back-1.jpg',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-  {
-    id: 'section2',
-    background: '/images/back-2.jpg',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-  {
-    id: 'section3',
-    background: '/images/back-3.jpg',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-  {
-    id: 'playnow',
-    background: '/images/lightcaves.png',
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-      },
-    },
-  },
-];
+import { title } from 'process';
 
 const snapToSection = (
   nextSectionId: string,
@@ -296,17 +84,23 @@ const IndexPage: React.FC = () => {
     image1: '/images/back-0.jpg',
     image2: '/images/back-0.jpg',
     image3: '/images/back-0.jpg',
+    title: 'sos',
+    desc: 'ss',
   });
 
   const toggleModal = (imageArray: {
     image1: string;
     image2: string;
     image3: string;
+    title: string;
+    desc: string;
   }) => {
     setImageArrayModal({
       image1: imageArray.image1,
       image2: imageArray.image2,
       image3: imageArray.image3,
+      title: imageArray.title,
+      desc: imageArray.desc,
     });
 
     setModalOpen(!modalOpen);
@@ -384,6 +178,8 @@ const IndexPage: React.FC = () => {
           image1={imageArrayModal.image1}
           image2={imageArrayModal.image2}
           image3={imageArrayModal.image3}
+          title={imageArrayModal.title}
+          desc={imageArrayModal.desc}
           onClose={() => setModalOpen(!modalOpen)}
         />
       )}
@@ -522,19 +318,15 @@ const IndexPage: React.FC = () => {
         ) : (
           <Section key={index} id={section.id} background={section.background}>
             <div className='h-screen w-screen flex flex-col items-end text-right  font-thin text-white mt-[10rem] mr-[3rem]'>
-              <h1 className=' text-4xl mt-[3rem]'>Open World</h1>
+              <h1 className=' text-4xl mt-[3rem]'>{section.title}</h1>
               <p className='text-1xl max-w-[25rem] mt-[1rem] animate-text'>
-                Explore the amazing world of The Hobbit with all it's journeys
-                and emotions! The story, charachters, dwarves, spiders and much
-                much more! Find the Gollum and steal his ring to become one of
-                the most powerful creatures alive! With the power of the ring,
-                your Sting will shine the way...
+                {section.description}
               </p>
               <div className='grid grid-cols-2 grid-rows-2 gap-8 mt-[4rem]'>
                 <div>
                   <Image
                     style={outline}
-                    src={section.image1}
+                    src={section.imageArr.image1.image1}
                     alt='*'
                     width={270}
                     height={140}
@@ -542,12 +334,14 @@ const IndexPage: React.FC = () => {
                     className='cursor-pointer'
                     onClick={() => toggleModal(section.imageArr.image1)}
                   />
-                  <p className='flex justify-center'>Long story</p>
+                  <p className='flex justify-center'>
+                    {section.imageArr.image1.title}
+                  </p>
                 </div>
                 <div>
                   <Image
                     style={outline}
-                    src={section.image2}
+                    src={section.imageArr.image2.image1}
                     alt='*'
                     width={270}
                     height={140}
@@ -555,12 +349,14 @@ const IndexPage: React.FC = () => {
                     className='cursor-pointer'
                     onClick={() => toggleModal(section.imageArr.image2)}
                   />
-                  <p className='flex justify-center'>Long story</p>
+                  <p className='flex justify-center'>
+                    {section.imageArr.image2.title}
+                  </p>
                 </div>
                 <div>
                   <Image
                     style={outline}
-                    src={section.image3}
+                    src={section.imageArr.image3.image1}
                     alt='*'
                     width={270}
                     height={140}
@@ -568,12 +364,14 @@ const IndexPage: React.FC = () => {
                     className='cursor-pointer'
                     onClick={() => toggleModal(section.imageArr.image3)}
                   />
-                  <p className='flex justify-center'>Long story</p>
+                  <p className='flex justify-center'>
+                    {section.imageArr.image3.title}
+                  </p>
                 </div>
                 <div>
                   <Image
                     style={outline}
-                    src={section.image4}
+                    src={section.imageArr.image4.image1}
                     alt='*'
                     width={270}
                     height={140}
@@ -581,7 +379,9 @@ const IndexPage: React.FC = () => {
                     className='cursor-pointer'
                     onClick={() => toggleModal(section.imageArr.image4)}
                   ></Image>
-                  <p className='flex justify-center'>Long story</p>
+                  <p className='flex justify-center'>
+                    {section.imageArr.image4.title}
+                  </p>
                 </div>
               </div>
             </div>
