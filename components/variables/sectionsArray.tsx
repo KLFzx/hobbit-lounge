@@ -97,29 +97,44 @@ export const sectionsArray = [
         image1: '/images/back-0.jpg',
         image2: '/images/back-1.jpg',
         image3: '/images/back-2.jpg',
-        title: 'Lake Town',
-        desc: 'Soosos',
+        title: 'Bilbo Baggins',
+        desc: `Bilbo Baggins is a hobbit of the Shire, a small, unassuming character who enjoys a quiet, 
+        comfortable life. Despite his initial reluctance, he embarks on an adventurous quest with a group 
+        of dwarves to reclaim their homeland from the dragon Smaug. Throughout the journey, Bilbo demonstrates 
+        courage, cleverness, and resourcefulness, ultimately discovering his own inner strength and transforming 
+        from a timid hobbit into a cunning and brave hero.`,
       },
       image2: {
         image1: '/images/back-2.jpg',
         image2: '/images/back-1.jpg',
         image3: '/images/back-2.jpg',
-        title: 'Lake Town',
-        desc: 'Soosos',
+        title: 'Horrible Creatures',
+        desc: `On the journey, Bilbo faces a variety of foes, each presenting unique challenges. Goblins, including 
+        archers and warriors, are common in Goblin-town, while wargs, wolf-like creatures, attack in packs in the 
+        wilderness. Giant spiders in Mirkwood can poison and immobilize with their webs. Wights, undead creatures in ancient 
+        tombs, are formidable adversaries, as are orcs encountered later 
+        in the game. Wolves, similar to wargs but weaker, attack during travels, and stone giants in the Misty Mountains
+        pose significant threats. Annoying dragonflies appear in forested areas, and Smaug, the primary antagonist, must 
+        be outsmarted rather than fought directly.`,
       },
       image3: {
         image1: '/images/back-1.jpg',
         image2: '/images/back-1.jpg',
         image3: '/images/back-2.jpg',
-        title: 'Lake Town',
-        desc: 'Soosos',
+        title: 'The Ring',
+        desc: `a magical artifact known as the One Ring. Bilbo finds it by chance in the dark depths of the Misty Mountains 
+        while escaping from the creature Gollum. The ring grants its wearer the power of invisibility, which Bilbo uses to 
+        evade enemies and navigate dangerous situations. 
+        However, the ring's sinister influence and connection to the Dark Lord Sauron are cursing Bilbo, but for now, Bilbo uses this power brought to the Middle-earth.`,
       },
       image4: {
         image1: '/images/back-0.jpg',
         image2: '/images/back-2.jpg',
         image3: '/images/back-2.jpg',
-        title: 'Lake Town',
-        desc: 'Soosos',
+        title: 'Your Arsenal',
+        desc: `The Sting, a magical Elvish dagger that glows blue in the presence of enemies, can be discovered from the Troll Hole. Bilbo also uses a walking 
+        stick for combat and can acquire additional items such as throwing stones to deal with foes. Upgrades throughout 
+        can be found to enhance his abilities, including improved combat skills and increased health.`,
       },
     },
   },
@@ -167,47 +182,6 @@ export const sectionsArray = [
   },
   {
     id: 'section2',
-    background: '/images/back-1.jpg',
-    title: 'The Battles!',
-    description: `Help Bilbo fight all the summons of The Necromancer - creepy Goblins, Spiders, Stone Giants and much more evil creatures. 
-    You would better be prepared for a hard battle!`,
-    image1: '/images/back-0.jpg',
-    image2: '/images/back-1.jpg',
-    image3: '/images/back-2.jpg',
-    image4: '/images/back-3.jpg',
-    imageArr: {
-      image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-        title: `Bilbos' weapons`,
-        desc: 'Soosos',
-      },
-      image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-        title: 'Courage points',
-        desc: 'Soosos',
-      },
-      image3: {
-        image1: '/images/back-1.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
-        title: 'Unique Quests',
-        desc: 'Soosos',
-      },
-      image4: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-2.jpg',
-        image3: '/images/back-2.jpg',
-        title: 'Usables',
-        desc: 'Soosos',
-      },
-    },
-  },
-  {
-    id: 'section3',
     background: '/images/back-2.jpg',
     title: 'Unique Levels',
     description: `Carefully designed levels will immerse you completely in the story. 
@@ -265,7 +239,46 @@ export const sectionsArray = [
       },
     },
   },
-
+  {
+    id: 'multiplayer',
+    background: '/images/lightcaves.png',
+    title: 'description',
+    description: 'none',
+    image1: '/images/back-0.jpg',
+    image2: '/images/back-1.jpg',
+    image3: '/images/back-2.jpg',
+    image4: '/images/back-3.jpg',
+    imageArr: {
+      image1: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+        title: 'Lake Town',
+        desc: 'Soosos',
+      },
+      image2: {
+        image1: '/images/back-2.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+        title: 'Lake Town',
+        desc: 'Soosos',
+      },
+      image3: {
+        image1: '/images/back-1.jpg',
+        image2: '/images/back-1.jpg',
+        image3: '/images/back-2.jpg',
+        title: 'Lake Town',
+        desc: 'Soosos',
+      },
+      image4: {
+        image1: '/images/back-0.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
+        title: 'Lake Town',
+        desc: 'Soosos',
+      },
+    },
+  },
   {
     id: 'playnow',
     background: '/images/lightcaves.png',

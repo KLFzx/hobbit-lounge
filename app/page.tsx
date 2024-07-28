@@ -225,9 +225,11 @@ const IndexPage: React.FC = () => {
           </Section>
         ) : section.id === 'description' ? (
           <Section key={index} id={section.id} background={section.background}>
-            <div className='flex text-black gap-8'>
+            <div className='flex text-black gap-8  items-center'>
               <div className='flex flex-col justify-center'>
-                <h2 className='text-3xl mb-4'>Extended Edition</h2>
+                <h2 className='text-3xl mb-4'>
+                  The Hobbit 2003 - Extended Edition
+                </h2>
 
                 <h3 className='mb-2'>
                   It's been almost 2 years and now the Extended Editon of The
@@ -235,19 +237,47 @@ const IndexPage: React.FC = () => {
                   <br />
                   The cut content that was never seen before is restored and
                   now.
+                  <br />
+                  We've worked very hard to restore everything that we could and
+                  now <br />
+                  we can finally show it to the world.
+                  <br />
+                  <br />
+                  You will find:
                 </h3>
                 <h3>• The Secret Grotto </h3>
                 <h3>• Troll Hole dialogs </h3>
                 <h3>• Lake town obstacle room </h3>
                 <h3>• Over Hill and Under Hill slopes and Troll Boss </h3>
+                <h3>• Much more </h3>
               </div>
-              <img src={'/images/hobbit.jpg'} alt='*' className='w-[500px] ' />
+              <img src={'/images/hobbit.jpg'} alt='*' className='w-[480px] ' />
+            </div>
+          </Section>
+        ) : section.id === 'multiplayer' ? (
+          <Section key={index} id={section.id} background={section.background}>
+            <div className='flex text-black gap-8  items-center'>
+              <img src={'/images/hobbit.jpg'} alt='*' className='w-[480px] ' />
+              <div className='flex flex-col justify-center text-right'>
+                <h2 className='text-3xl mb-4'>Multiplayer</h2>
+
+                <h3 className='mb-2'>
+                  Now you can explore the world of The Hobbit with your friends!
+                  <br />
+                  Despite the fact that everyone is still located inside their
+                  world,
+                  <br />
+                  you are still able to walk around locations with you Hobbit
+                  homies <br />
+                  and discover new levels together!
+                </h3>
+              </div>
             </div>
           </Section>
         ) : section.id === 'playnow' ? (
           <Section key={index} id={section.id} background={section.background}>
             <div className='h-screen w-screen pt-[10rem] flex flex-col items-center justify-start text-black'>
-              <h1 className='text-2xl mb-[2rem]'>Select your game version</h1>
+              <h1 className='text-2xl mb-[2rem]'>BECOME THE TRUE HOBBIT</h1>
               <div className='flex mx-[8rem]'>
                 <div className='flex justify-center'>
                   <img
