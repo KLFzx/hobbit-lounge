@@ -136,7 +136,7 @@ const IndexPage: React.FC = () => {
   }, [currentSection]); // Empty dep
 
   return (
-    <div>
+    <div className='overflow-hidden'>
       <Head>
         <title>Scrolling Sections</title>
         {/* Add any other necessary meta tags */}
@@ -194,13 +194,19 @@ const IndexPage: React.FC = () => {
                   width={440}
                   alt={''}
                 ></Image>
-                <p>A project, driven by community</p>
+                <p className=' text-yellow-400'>
+                  A project, driven by community
+                </p>
                 <div className='flex items-center justify-center gap-8 mt-[3rem]'>
                   <Image
                     src={'/icons/PlayNow.svg'}
                     height={140}
                     width={150}
                     alt={''}
+                    className=' cursor-pointer transform transition-transform duration-300 hover:scale-105 '
+                    onClick={() => {
+                      snapToSection('playnow', setCurrentSection);
+                    }}
                   ></Image>
                   <h1>Watch trailer</h1>
                 </div>
@@ -219,7 +225,24 @@ const IndexPage: React.FC = () => {
           </Section>
         ) : section.id === 'description' ? (
           <Section key={index} id={section.id} background={section.background}>
-            Description
+            <div className='flex text-black gap-8'>
+              <div className='flex flex-col justify-center'>
+                <h2 className='text-3xl mb-4'>Extended Edition</h2>
+
+                <h3 className='mb-2'>
+                  It's been almost 2 years and now the Extended Editon of The
+                  Hobbit 2003.
+                  <br />
+                  The cut content that was never seen before is restored and
+                  now.
+                </h3>
+                <h3>• The Secret Grotto </h3>
+                <h3>• Troll Hole dialogs </h3>
+                <h3>• Lake town obstacle room </h3>
+                <h3>• Over Hill and Under Hill slopes and Troll Boss </h3>
+              </div>
+              <img src={'/images/hobbit.jpg'} alt='*' className='w-[500px] ' />
+            </div>
           </Section>
         ) : section.id === 'playnow' ? (
           <Section key={index} id={section.id} background={section.background}>
@@ -266,8 +289,11 @@ const IndexPage: React.FC = () => {
                   />
                 </div>
               </div>
-              <p className='text-1xl mt-[2rem]'>
+              <p className='text-xl mt-[2rem]'>
                 Explore the world of The Hobbit via various platfroms
+              </p>
+              <p className='text-sm '>
+                (Extended Edition is currently only available for PC)
               </p>
               <div className='flex gap-20 justify-center items-center mt-[5rem]'>
                 <Image
@@ -276,7 +302,7 @@ const IndexPage: React.FC = () => {
                   width={200}
                   height={140}
                   priority
-                  className='cursor-pointer'
+                  className='cursor-pointer transform transition-transform duration-300 hover:scale-105 '
                   onClick={() =>
                     window.open(
                       'https://github.com/hobbit-kingdom/hobbit-versions',
@@ -290,7 +316,7 @@ const IndexPage: React.FC = () => {
                   width={200}
                   height={140}
                   priority
-                  className='cursor-pointer'
+                  className='cursor-pointer transform transition-transform duration-300 hover:scale-105 '
                   onClick={() =>
                     window.open(
                       'https://github.com/hobbit-kingdom/hobbit-versions',
@@ -304,7 +330,7 @@ const IndexPage: React.FC = () => {
                   width={200}
                   height={140}
                   priority
-                  className='cursor-pointer'
+                  className='cursor-pointer transform transition-transform duration-300 hover:scale-105 '
                   onClick={() =>
                     window.open(
                       'https://github.com/hobbit-kingdom/hobbit-versions',
@@ -388,8 +414,6 @@ const IndexPage: React.FC = () => {
           </Section>
         )
       )}
-
-      {/* Add more sections as needed */}
     </div>
   );
 };
