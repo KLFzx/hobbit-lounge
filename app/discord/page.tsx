@@ -36,7 +36,11 @@ const Page: React.FC = () => {
           <a
             href='https://discord.gg/xbFAwgstNd'
             className='text-2xl font-thin text-white mt-7 rounded-lg p-1 px-3'
-            style={{ backgroundColor: '#5765F2' }}
+            style={{
+              backgroundColor: '#5765F2',
+              cursor: 'pointer',
+              zIndex: 100,
+            }}
           >
             Join
           </a>
