@@ -105,9 +105,9 @@ export const sectionsArray = [
         from a timid hobbit into a cunning and brave hero.`,
       },
       image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
+        image1: '/images/cre2.jpg',
+        image2: '/images/cre1.jpg',
+        image3: '/images/cre3.jpg',
         title: 'Horrible Creatures',
         desc: `On the journey, Bilbo faces a variety of foes, each presenting unique challenges. Goblins, including 
         archers and warriors, are common in Goblin-town, while wargs, wolf-like creatures, attack in packs in the 
