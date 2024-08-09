@@ -83,7 +83,7 @@ export const sectionsArray = [
   },
   {
     id: 'section0',
-    background: '/images/back-0.jpg',
+    background: '/images/hobbiton2.jpg',
     title: 'Breathtaking Story',
     description: `Explore the world of The Hobbit in the most immersive way that you could ever imagine! 
       Conquer the Lonely Mountain and help Thorin and 13 dwarves return the Heart of the Mountain.
@@ -94,9 +94,9 @@ export const sectionsArray = [
     image4: '/images/back-3.jpg',
     imageArr: {
       image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
+        image1: '/images/bilbo3.jpg',
+        image2: '/images/bilbo2.jpg',
+        image3: '/images/bilbo1.jpg',
         title: 'Bilbo Baggins',
         desc: `Bilbo Baggins is a hobbit of the Shire, a small, unassuming character who enjoys a quiet, 
         comfortable life. Despite his initial reluctance, he embarks on an adventurous quest with a group 
@@ -143,7 +143,7 @@ export const sectionsArray = [
     background: '/images/back-3.jpg',
     title: 'Extended Unseen Content',
     description: `Never seen content which was cut from the game is now Finally Restored! 
-    Experience new quests, extended dialogs and completely new locations to explore! These are only a few:`,
+    Experience new quests, extended dialogs and completely new locations to explore!`,
 
     image1: '/images/back-0.jpg',
     image2: '/images/back-1.jpg',
@@ -155,21 +155,29 @@ export const sectionsArray = [
         image2: '/images/back-1.jpg',
         image3: '/images/back-2.jpg',
         title: 'Barrels out of Bonds',
-        desc: 'Soosos',
+        desc: `A Huge area was restored. The Grotto caves and the Library was restored and filled with playable objects. 
+        The Elf Guards has been added and mapped for the patrolling as we were able to find the exact locations which was 
+        left by developers. Also a completely cut quest was restored. You will have to find a cure potion for Bombur since 
+        he is seek. A lot of work with cutscenes has been done, the location of spider liar was changed, and a new cave in 
+        the garden was added.`,
       },
       image2: {
-        image1: '/images/back-2.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
+        image1: '/images/boss1.jpg',
+        image2: '/images/overhill1.jpg',
+        image3: '/images/boss1.jpg',
         title: 'Over Hill and Under Hill',
-        desc: 'Soosos',
+        desc: `The dramastic cut area was restored and filled with courage points, chests, enemies and much more.
+         Some of the parts were broken and had to be completely renovated in order to become fucntional: falling rocks, 
+         uprising water logic, new Bats, Troll Boss fight. Now the level became even more interesting and challenging. `,
       },
       image3: {
         image1: '/images/back-1.jpg',
         image2: '/images/back-1.jpg',
         image3: '/images/back-2.jpg',
         title: 'Lake Town',
-        desc: 'Soosos',
+        desc: `The Lake Town had a lot of content that was ment to be there, but was shrikned. Since the lack of materials 
+        only a obstacle room at the very end of the level was added back to the game. All the dialogs and ideas that we've 
+        found were cut on early stages so they were left as they are.`,
       },
       image4: {
         image1: '/images/back-0.jpg',
