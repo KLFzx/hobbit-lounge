@@ -122,7 +122,7 @@ export const sectionsArray = [
         image2: '/images/back-1.jpg',
         image3: '/images/back-2.jpg',
         title: 'The Ring',
-        desc: `a magical artifact known as the One Ring. Bilbo finds it by chance in the dark depths of the Misty Mountains 
+        desc: `A magical artifact known as the One Ring. Bilbo finds it by chance in the dark depths of the Misty Mountains 
         while escaping from the creature Gollum. The ring grants its wearer the power of invisibility, which Bilbo uses to 
         evade enemies and navigate dangerous situations. 
         However, the ring's sinister influence and connection to the Dark Lord Sauron are cursing Bilbo, but for now, Bilbo uses this power brought to the Middle-earth.`,

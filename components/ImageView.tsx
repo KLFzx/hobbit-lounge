@@ -55,7 +55,7 @@ const ImageView: React.FC<{
               width={240}
               alt={''}
               style={outline}
-              className='cursor-pointer'
+              className='cursor-pointer w-16 md:w-24 lg:w-[14rem] xl:w-[18rem] 2xl:w-[30rem]'
               onClick={() => changeBackground(image1)}
             ></Image>
             <Image
@@ -64,7 +64,7 @@ const ImageView: React.FC<{
               width={240}
               alt={''}
               style={outline}
-              className='cursor-pointer'
+              className='cursor-pointer w-16 md:w-24 lg:w-[14rem] xl:w-[18rem] 2xl:w-[30rem]'
               onClick={() => changeBackground(image2)}
             ></Image>
             <Image
@@ -73,7 +73,7 @@ const ImageView: React.FC<{
               width={240}
               alt={''}
               style={outline}
-              className='cursor-pointer'
+              className='cursor-pointer w-16 md:w-24 lg:w-[14rem] xl:w-[18rem] 2xl:w-[30rem]'
               onClick={() => changeBackground(image3)}
             ></Image>
           </div>
