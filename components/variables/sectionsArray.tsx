@@ -140,7 +140,7 @@ export const sectionsArray = [
   },
   {
     id: 'section1',
-    background: '/images/back-3.jpg',
+    background: '/images/boob-0.jpg',
     title: 'Extended Unseen Content',
     description: `Never seen content which was cut from the game is now Finally Restored! 
     Experience new quests, extended dialogs and completely new locations to explore!`,
@@ -151,9 +151,9 @@ export const sectionsArray = [
     image4: '/images/back-3.jpg',
     imageArr: {
       image1: {
-        image1: '/images/back-0.jpg',
-        image2: '/images/back-1.jpg',
-        image3: '/images/back-2.jpg',
+        image1: '/images/boob-0.jpg',
+        image2: '/images/boob-1.jpg',
+        image3: '/images/boob-2.jpg',
         title: 'Barrels out of Bonds',
         desc: `A Huge area was restored. The Grotto caves and the Library was restored and filled with playable objects. 
         The Elf Guards has been added and mapped for the patrolling as we were able to find the exact locations which was 
@@ -210,9 +210,9 @@ export const sectionsArray = [
               Despite these worries, Lake-town endured, drawing strength from its resilient community and deep-rooted traditions, a vital part of Middle-earth's rich tapestry.`,
       },
       image2: {
-        image1: '/images/boob-0.jpg',
-        image2: '/images/boob-1.jpg',
-        image3: '/images/boob-2.jpg',
+        image1: '/images/boob-7.jpg',
+        image2: '/images/boob-5.jpg',
+        image3: '/images/boob-6.jpg',
         title: 'Barrels out of Bonds',
         desc: `Deep within Mirkwood Forest, nestled amidst ancient trees and the whispering of leaves, 
               lies the Elvenking's palace. Built with graceful arches and adorned with intricate carvings, 
@@ -242,7 +242,7 @@ export const sectionsArray = [
         image1: '/images/back-0.jpg',
         image2: '/images/mountain-0.jpg',
         image3: '/images/mountain-1.jpg',
-        title: 'Lake Town',
+        title: 'Swordlight',
         desc: 'Soosos',
       },
     },

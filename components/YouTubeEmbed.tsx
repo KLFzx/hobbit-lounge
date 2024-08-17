@@ -14,7 +14,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
   height = 315,
 }) => {
   return (
-    <div className='video-container'>
+    <div className='video-container '>
       <iframe
         width={width}
         height={height}
@@ -22,6 +22,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
         title='YouTube video player'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
+        className='sm:w-[7rem] md:w-[15rem] lg:w-[20rem] xl:w-[34rem] 3xl:w-[70rem] 3xl:h-[40rem]'
       ></iframe>
     </div>
   );
