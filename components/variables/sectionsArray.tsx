@@ -83,7 +83,7 @@ export const sectionsArray = [
   },
   {
     id: 'section0',
-    background: '/images/hobbiton2.jpg',
+    background: '/images/render3.jpg',
     title: 'Breathtaking Story',
     description: `Explore the world of The Hobbit in the most immersive way that you could ever imagine! 
       Conquer the Lonely Mountain and help Thorin and 13 dwarves return the Heart of the Mountain.
