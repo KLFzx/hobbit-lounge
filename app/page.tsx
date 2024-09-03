@@ -428,7 +428,7 @@ const IndexPage: React.FC = () => {
                   className='cursor-pointer transform transition-transform duration-300 hover:scale-105 '
                   onClick={() =>
                     window.open(
-                      'https://github.com/hobbit-kingdom/hobbit-versions',
+                      'https://github.com/hobbit-kingdom/hobbit-versions/releases/tag/Xbox',
                       '_blank'
                     )
                   }
