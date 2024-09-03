@@ -184,7 +184,9 @@ export const sectionsArray = [
         image2: '/images/back-2.jpg',
         image3: '/images/back-2.jpg',
         title: 'Troll Hole',
-        desc: 'Soosos',
+        desc: `As the story goes the Troll Hole was discovered by Biblo and Dwarfes after the sunsrise, when the Trolls ate themselves and 
+        become a stone. In the Extended Edition you will find a lot of restored dialogues with dwarves, a cut location filled with content and 
+        also a hidden Lianas' camp. Also a bat creature has been added to the caves as it was initially planned by developers.`,
       },
     },
   },
@@ -240,10 +242,13 @@ export const sectionsArray = [
       },
       image4: {
         image1: '/images/back-0.jpg',
-        image2: '/images/mountain-0.jpg',
-        image3: '/images/mountain-1.jpg',
+        image2: '/images/back-2.jpg',
+        image3: '/images/back-2.jpg',
         title: 'Swordlight',
-        desc: 'Soosos',
+        desc: `In the caves you have to navigate through the dark and eerie tunnels of Goblin Town. The level is set deep 
+        within the Misty Mountains, where Bilbo, after being separated from the dwarves, finds himself alone in the cold, 
+        damp caverns. The environment is dimly lit, with shadows dancing on the walls, creating an atmosphere of tension and danger.
+      `,
       },
     },
   },

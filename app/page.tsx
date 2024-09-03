@@ -197,6 +197,7 @@ const IndexPage: React.FC = () => {
           onClose={() => setModalOpen(!modalOpen)}
         />
       )}
+
       {sectionsArray.map((section, index) =>
         section.id === 'main' ? (
           <Section key={index} id={section.id} background={section.background}>
@@ -246,26 +247,34 @@ const IndexPage: React.FC = () => {
                 </h2>
 
                 <h3 className='mb-2'>
-                  It's been almost 2 years and now the Extended Editon of The
-                  Hobbit 2003.
+                  It's been almost 2 years since the work on <br />
+                  the Extended Editon of The Hobbit 2003 has been started.
                   <br />
-                  The cut content that was never seen before is restored and
-                  now.
+                  The cut content that was never seen before is restored
                   <br />
-                  We've worked very hard to restore everything that we could and
-                  now <br />
-                  we can finally show it to the world.
+                  and now finally ready for you to try.
+                  <br />
+                  We've worked very hard to complete everything that we could
+                  <br />
+                  and now we can finally reveal it to the Middle-Earth.
                   <br />
                   <br />
                   You will find:
                 </h3>
-                <h3>• The Secret Grotto </h3>
-                <h3>• Troll Hole dialogs </h3>
-                <h3>• Lake town obstacle room </h3>
+                <h3>• The Secret Grotto in the Elven Kingdom</h3>
+                <h3>• Unseen Quests</h3>
+                <h3>• Troll Hole dialogs and Bats creatures </h3>
+                <h3>• Lake Town Obstacle Room </h3>
+                <h3>• Extended Troll Dialogue in Roast Mutton </h3>
                 <h3>• Over Hill and Under Hill slopes and Troll Boss </h3>
-                <h3>• Much more </h3>
+                <h3>• Lot's of Bug fixes & Game improvements </h3>
+                <h3>• And much much more </h3>
               </div>
-              <img src={'/images/ext.jpg'} alt='*' className='w-[480px] ' />
+              <img
+                src={'/images/ext.jpg'}
+                alt='*'
+                className='w-[480px] 4xl:w-[960px] border-black border-4  '
+              />
             </div>
           </Section>
         ) : section.id === 'multiplayer' ? (
@@ -438,7 +447,16 @@ const IndexPage: React.FC = () => {
           </Section>
         ) : (
           <Section key={index} id={section.id} background={section.background}>
-            <div className='h-screen w-screen flex flex-col items-end text-right justify-end  font-thin text-white mb-[10rem] md:mt-[8rem] mr-[3rem] 2xl:mb-[14rem]'>
+            <div className='relative left-[3em] top-[-20em] 2xl:top-[-25em] 3xl:top-[-28em] 3xl:left-[4em] 4xl:top-[-40em] 4xl:left-[4em]'>
+              <Image
+                src={'/images/logo.png'}
+                height={340}
+                width={200}
+                alt={''}
+                className='w-3 md:w-[8rem] 2xl:w-[15rem] 3xl:w-[15rem] 4xl:w-[30rem]'
+              ></Image>
+            </div>
+            <div className='h-screen w-screen flex flex-col items-end text-right justify-end  font-thin text-white   mr-[3rem] mb-[10rem] 2xl:mb-[30rem]  3xl:mb-[20rem] 4xl:mb-[40rem]'>
               <h1 className=' text-4xl mt-[3rem]'>{section.title}</h1>
               <p className='text-1xl max-w-[25rem] mt-[1rem] animate-text'>
                 {section.description}
