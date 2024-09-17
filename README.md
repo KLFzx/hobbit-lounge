@@ -5,7 +5,11 @@ Welcome to The Hobbit Lounge, a website for The Hobbit 2003 game.
 
 ## Getting Started For Developers
 
-First, run the development server:
+Install Node.js on your machine.
+
+First run npm install to install all the required packeges.
+
+Then, run the development server with:
 
 ```bash
 npm run dev
