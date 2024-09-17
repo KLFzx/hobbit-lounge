@@ -5,7 +5,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { CSSProperties } from 'react';
 import ImageView from '@/components/ImageView';
-import { throttle } from 'lodash';
 
 import Section from '@/components/Section';
 import Navbar from '@/components/Navbar';
