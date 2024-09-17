@@ -212,7 +212,7 @@ const IndexPage: React.FC = () => {
                     alt={'Play Now'}
                     className='cursor-pointer transform transition-transform duration-300 hover:scale-105 z-10 '
                     onClick={() => {
-                      snapToSection('playnow', setCurrentSection);
+                      snapToSection('playnow', setCurrentSection, true);
                     }}
                   ></Image>
                   <h1 className='z-10 '>Watch trailer</h1>
