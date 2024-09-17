@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { CSSProperties } from 'react';
 import ImageView from '@/components/ImageView';
+import { throttle } from 'lodash';
 
 import Section from '@/components/Section';
 import Navbar from '@/components/Navbar';
@@ -14,42 +15,32 @@ import { title } from 'process';
 import './globals.css';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
 
-const snapToSection = (
-  nextSectionId: string,
-  callback: (param: string) => void
-) => {
-  const nextSection = document.getElementById(nextSectionId);
-  if (nextSection) {
-    const scrollPos = nextSection.offsetTop;
-    window.scrollTo({ top: scrollPos, behavior: 'smooth' });
-    callback(nextSectionId);
-  }
-};
-
 const IndexPage: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState<string>('section1');
+  const [currentSection, setCurrentSection] = useState<string>('main');
+  const [lastTime, setLastTime] = useState(Date.now());
+
+  const snapToSection = (
+    nextSectionId: string,
+    callback: (param: string) => void,
+    instant: boolean
+  ) => {
+    const nextSection = document.getElementById(nextSectionId);
+    const currentTime = Date.now();
+
+    if (instant || currentTime - lastTime > 1200) {
+      if (!instant) setLastTime(currentTime);
+      if (nextSection) {
+        const scrollPos = nextSection.offsetTop;
+        window.scrollTo({ top: scrollPos, behavior: 'smooth' });
+        callback(nextSectionId);
+      }
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section');
-      let closestSectionId = '';
-      let closestDistance = Infinity;
-
-      sections.forEach((section: Element) => {
-        const rect = section.getBoundingClientRect();
-        const distance = Math.abs(rect.top);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestSectionId = section.id;
-        }
-      });
-
-      setCurrentSection(closestSectionId);
-    };
-
     const handleMouseWheel = (event: WheelEvent) => {
       event.preventDefault();
+
       const delta = Math.sign(event.deltaY);
       const currentSectionIndex = sections.findIndex(
         (section) => section.id === currentSection
@@ -59,18 +50,18 @@ const IndexPage: React.FC = () => {
         Math.min(sections.length - 1, currentSectionIndex + delta)
       );
       const nextSectionId = sections[nextSectionIndex].id;
-      snapToSection(nextSectionId, setCurrentSection);
+      snapToSection(nextSectionId, setCurrentSection, false);
     };
 
     const sections = Array.from(document.querySelectorAll('section'));
 
-    document.addEventListener('scroll', handleScroll);
-    handleScroll();
+    //document.addEventListener('scroll', handleScroll, { passive: false });
+    //handleScroll();
 
     document.addEventListener('wheel', handleMouseWheel);
 
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      //document.removeEventListener('scroll', handleScroll);
       document.removeEventListener('wheel', handleMouseWheel);
     };
   }, [currentSection]);
@@ -168,7 +159,9 @@ const IndexPage: React.FC = () => {
               }
             >
               <button
-                onClick={() => snapToSection(section.id, setCurrentSection)}
+                onClick={() =>
+                  snapToSection(section.id, setCurrentSection, true)
+                }
               >
                 <Image
                   src={
