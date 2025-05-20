@@ -30,12 +30,16 @@ const Page: React.FC = () => {
           <h1 className='text-4xl font-bold text-white mt-7'>
             Technical Hobbit Chat
           </h1>
-          <h2 className='text-2xl font-thin text-white mt-7'>
+          <h2 className='text-2xl font-thin text-white mt-1'>
             The Best Modding Community
           </h2>
+          <h3 className='text-l text-center text-white mt-7'>
+            Join our modding community! Discuss the game, cut content you crazy
+            ideas and just spend time with your fellow Hobbits!
+          </h3>
           <a
             href='https://discord.gg/xbFAwgstNd'
-            className='text-2xl font-thin text-white mt-7 rounded-lg p-1 px-3'
+            className='text-2xl text-white mt-7 rounded-lg p-1 px-3'
             style={{
               backgroundColor: '#5765F2',
               cursor: 'pointer',
