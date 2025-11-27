@@ -29,17 +29,15 @@ const Navbar: React.FC<{ id: number }> = ({ id }) => {
           Discord
         </a>
       </div>
-      <div className='group'>
+      <div className='flex flex-col items-center'>
         <a
-          className={`hover group-hover ${
+          className={`hover ${
             id == 3 ? 'text-red-600' : 'text-white'
           } `}
+          href='/mods'
         >
           Mods
         </a>
-        <OverlayBox>
-          <p>Coming soon...</p>
-        </OverlayBox>
       </div>
       <div className='group'>
         <a

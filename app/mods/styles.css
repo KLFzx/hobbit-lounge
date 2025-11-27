@@ -10,3 +10,27 @@
 .grayBackground {
   background-color: rgb(55, 55, 55);
 }
+
+/* Custom scrollbar for mods page */
+.min-h-screen::-webkit-scrollbar {
+  width: 8px;
+}
+
+.min-h-screen::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.min-h-screen::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.min-h-screen::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+/* Select styling fix */
+select option {
+  background-color: #2a2a2a;
+  color: white;
+}

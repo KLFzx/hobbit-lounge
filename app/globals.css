@@ -5,7 +5,11 @@
 body {
   color: #ffffff;
   overflow-x: hidden;
-  overflow-y: hidden;
+}
+
+/* Allow vertical scrolling on mod pages */
+body:has(.min-h-screen) {
+  overflow-y: auto;
 }
 
 /* Define font size styles */
