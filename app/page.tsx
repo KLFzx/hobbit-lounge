@@ -16,52 +16,44 @@ import YouTubeEmbed from '@/components/YouTubeEmbed';
 
 const IndexPage: React.FC = () => {
   const [currentSection, setCurrentSection] = useState<string>('main');
-  const [lastTime, setLastTime] = useState(Date.now());
 
-  const snapToSection = (
-    nextSectionId: string,
-    callback: (param: string) => void,
-    instant: boolean
-  ) => {
-    const nextSection = document.getElementById(nextSectionId);
-    const currentTime = Date.now();
-
-    if (instant || currentTime - lastTime > 1200) {
-      if (!instant) setLastTime(currentTime);
-      if (nextSection) {
-        const scrollPos = nextSection.offsetTop;
-        window.scrollTo({ top: scrollPos, behavior: 'smooth' });
-        callback(nextSectionId);
-      }
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setCurrentSection(sectionId);
     }
   };
 
+  // Track current section based on scroll position
   useEffect(() => {
-    const handleMouseWheel = (event: WheelEvent) => {
-      event.preventDefault();
-
-      const delta = Math.sign(event.deltaY);
-      const currentSectionIndex = sections.findIndex(
-        (section) => section.id === currentSection
-      );
-      const nextSectionIndex = Math.max(
-        0,
-        Math.min(sections.length - 1, currentSectionIndex + delta)
-      );
-      const nextSectionId = sections[nextSectionIndex].id;
-      snapToSection(nextSectionId, setCurrentSection, false);
+    const handleScroll = () => {
+      const scrollContainer = document.querySelector('.snap-container');
+      if (!scrollContainer) return;
+      
+      const sections = Array.from(document.querySelectorAll('section'));
+      const scrollTop = scrollContainer.scrollTop;
+      const windowHeight = window.innerHeight;
+      
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollTop >= sectionTop - windowHeight / 2 && scrollTop < sectionBottom - windowHeight / 2) {
+          if (currentSection !== section.id) {
+            setCurrentSection(section.id);
+          }
+          break;
+        }
+      }
     };
 
-    const sections = Array.from(document.querySelectorAll('section'));
-
-    //document.addEventListener('scroll', handleScroll, { passive: false });
-    //handleScroll();
-
-    document.addEventListener('wheel', handleMouseWheel);
-
+    const scrollContainer = document.querySelector('.snap-container');
+    scrollContainer?.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
-      //document.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('wheel', handleMouseWheel);
+      scrollContainer?.removeEventListener('scroll', handleScroll);
     };
   }, [currentSection]);
 
@@ -140,7 +132,7 @@ const IndexPage: React.FC = () => {
   };
 
   return (
-    <div style={sectionStyle}>
+    <div style={sectionStyle} className='snap-container'>
       <Head>
         <title>Scrolling Sections</title>
         {/* Add any other necessary meta tags */}
@@ -158,9 +150,7 @@ const IndexPage: React.FC = () => {
               }
             >
               <button
-                onClick={() =>
-                  snapToSection(section.id, setCurrentSection, true)
-                }
+                onClick={() => scrollToSection(section.id)}
               >
                 <Image
                   src={
@@ -211,9 +201,7 @@ const IndexPage: React.FC = () => {
                     width={150}
                     alt={'Play Now'}
                     className='cursor-pointer transform transition-transform duration-300 hover:scale-105 z-10 '
-                    onClick={() => {
-                      snapToSection('playnow', setCurrentSection, true);
-                    }}
+                    onClick={() => scrollToSection('playnow')}
                   ></Image>
                   <h1 className='z-10 '>Watch trailer</h1>
                 </div>

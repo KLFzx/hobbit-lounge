@@ -21,7 +21,7 @@ const Section: React.FC<{ id: string; background: string; children: any }> = ({
   return (
     <section
       id={id}
-      className='h-screen flex items-center justify-center'
+      className='h-screen min-h-screen max-h-screen flex items-center justify-center relative overflow-hidden'
       style={sectionStyle}
     >
       <div className='gradient-overlay'></div>

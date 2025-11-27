@@ -5,11 +5,36 @@
 body {
   color: #ffffff;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* Allow vertical scrolling on mod pages */
 body:has(.min-h-screen) {
   overflow-y: auto;
+}
+
+/* Scroll snap container for home page */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-container section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Hide scrollbar but keep functionality */
+.snap-container::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.snap-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Define font size styles */
