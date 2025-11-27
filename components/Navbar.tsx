@@ -29,6 +29,16 @@ const Navbar: React.FC<{ id: number }> = ({ id }) => {
           Discord
         </a>
       </div>
+      <div className='flex flex-col items-center '>
+        <a
+          className={`flex items-center justify-center flex-row hover ${
+            id == 6 ? 'text-red-600' : 'text-white'
+          } `}
+          href='/beta'
+        >
+          Beta
+        </a>
+      </div>
       <div className='flex flex-col items-center'>
         <a
           className={`hover ${
@@ -39,17 +49,15 @@ const Navbar: React.FC<{ id: number }> = ({ id }) => {
           Mods
         </a>
       </div>
-      <div className='group'>
+      <div className='flex flex-col items-center'>
         <a
-          className={`hover group-hover ${
+          className={`hover ${
             id == 4 ? 'text-red-600' : 'text-white'
           } `}
+          href='/wiki'
         >
           Wiki
         </a>
-        <OverlayBox>
-          <p>Coming soon...</p>
-        </OverlayBox>
       </div>
       <a
         className={`hover ${id == 5 ? 'text-red-600' : 'text-white'} `}
