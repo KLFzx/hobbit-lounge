@@ -1,21 +1,64 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { 
-  articles, 
+  articles as hardcodedArticles, 
   wikiCategories, 
-  getArticleBySlug, 
-  getArticlesByCategory,
   WikiArticle 
 } from '../data/articles';
 
 export default function WikiArticlePage() {
   const params = useParams();
   const slug = params.slug as string;
+  const [allArticles, setAllArticles] = useState<WikiArticle[]>(hardcodedArticles);
+  const [loading, setLoading] = useState(true);
+
+  // Load user-created articles
+  useEffect(() => {
+    const loadUserArticles = async () => {
+      try {
+        const res = await fetch('/api/wiki/articles');
+        if (res.ok) {
+          const data = await res.json();
+          // Merge hardcoded and user articles, user articles override hardcoded ones with same slug
+          const userArticles = data.articles || [];
+          const merged = [...hardcodedArticles];
+          userArticles.forEach((ua: WikiArticle) => {
+            const existingIdx = merged.findIndex(a => a.slug === ua.slug);
+            if (existingIdx >= 0) {
+              merged[existingIdx] = ua;
+            } else {
+              merged.push(ua);
+            }
+          });
+          setAllArticles(merged);
+        }
+      } catch (error) {
+        console.log('Using hardcoded articles only');
+      }
+      setLoading(false);
+    };
+    loadUserArticles();
+  }, []);
+
+  const getArticleBySlug = (s: string) => allArticles.find(a => a.slug === s);
+  const getArticlesByCategory = (cat: string) => allArticles.filter(a => a.category === cat);
+  
   const article = getArticleBySlug(slug);
+
+  if (loading) {
+    return (
+      <div className='min-h-screen bg-[#1a1a1a]'>
+        <Navbar id={4}></Navbar>
+        <div className='pt-32 text-center'>
+          <p className='text-gray-400'>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!article) {
     return (
