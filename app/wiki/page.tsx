@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { articles as hardcodedArticles, wikiCategories, WikiArticle } from './data/articles';
+import '../styles/liquid-glass.css';
 
 const WikiHomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -60,11 +61,14 @@ const WikiHomePage: React.FC = () => {
 
       {/* Wiki Header */}
       <div 
-        className='relative h-[240px] flex items-end'
+        className='relative h-[240px] flex items-end mb-5'
       >
-        <div className='relative z-10 w-full max-w-7xl mx-auto px-6 pb-6 flex items-center justify-between flex-wrap gap-4'>
-          <h1 className='text-3xl md:text-4xl font-bold text-[#f5c518]'>The Hobbit 2003 Wiki</h1>
-          <div className='relative'>
+        <div className='lg-blob left-[-80px] top-[-40px]' />
+        <div className='lg-blob right-[-60px] bottom-[-40px]' />
+
+        <div className='relative z-10 w-full max-w-7xl mx-auto px-6 pb-6 flex items-center justify-between flex-wrap gap-4 lg-panel'>
+          <h1 className='text-3xl md:text-4xl font-bold text-[#f5c518] mt-5'>The Hobbit 2003 Wiki</h1>
+          <div className='relative mt-6'>
             <input
               type='text'
               placeholder='Search wiki...'
@@ -79,7 +83,7 @@ const WikiHomePage: React.FC = () => {
 
       {/* Search Results */}
       {searchQuery && (
-        <div className='max-w-7xl mx-auto p-6 bg-[#1a1a1a]/95'>
+        <div className='max-w-7xl mx-auto p-6 lg-panel'>
           <h2 className='text-xl text-white mb-4'>
             Search results for "{searchQuery}" ({searchResults.length} found)
           </h2>
@@ -111,9 +115,9 @@ const WikiHomePage: React.FC = () => {
 
       {/* Main Content (shown when not searching) */}
       {!searchQuery && (
-        <div className='max-w-7xl mx-auto p-6 bg-[#1a1a1a]/95'>
+        <div className='max-w-7xl mx-auto p-6 lg-panel'>
           {/* Welcome Section */}
-          <div className='bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg p-6 mb-8'>
+          <div className='lg-card p-6 mb-8'>
             <h2 className='text-3xl font-serif text-white mb-4'>Welcome to The Hobbit 2003 Wiki</h2>
             <p className='text-gray-300 mb-4'>
               Your comprehensive guide to The Hobbit (2003) video game. Explore articles about characters,
@@ -134,7 +138,7 @@ const WikiHomePage: React.FC = () => {
                 <Link
                   key={article.slug}
                   href={`/wiki/${article.slug}`}
-                  className='bg-[#2a2a2a] border border-[#3a3a3a] rounded overflow-hidden hover:border-[#f5c518] transition-colors group'
+                  className='lg-card overflow-hidden hover:border-[#f5c518] transition-colors group'
                 >
                   {article.image && (
                     <div className='h-32 overflow-hidden'>
@@ -163,7 +167,7 @@ const WikiHomePage: React.FC = () => {
                 if (categoryArticles.length === 0) return null;
                 
                 return (
-                  <div key={category} className='bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg overflow-hidden'>
+                  <div key={category} className='lg-card overflow-hidden'>
                     <div className='bg-[#f5c518] px-4 py-2'>
                       <h3 className='text-black font-bold'>{category}</h3>
                       <span className='text-black/60 text-sm'>{categoryArticles.length} articles</span>
@@ -197,7 +201,7 @@ const WikiHomePage: React.FC = () => {
           {/* All Articles */}
           <div className='mt-8'>
             <h2 className='text-2xl font-serif text-white mb-4 border-b border-[#3a3a3a] pb-2'>All Articles</h2>
-            <div className='bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg p-4'>
+            <div className='lg-card p-4'>
               <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2'>
                 {allArticles.map((article) => (
                   <Link
@@ -213,7 +217,7 @@ const WikiHomePage: React.FC = () => {
           </div>
 
           {/* How to Add Articles */}
-          <div className='mt-8 bg-[#252525] border border-[#3a3a3a] rounded-lg p-6'>
+          <div className='mt-8 lg-card p-6'>
             <h2 className='text-xl font-serif text-[#f5c518] mb-2'>📝 Contributing to the Wiki</h2>
             <p className='text-gray-300 text-sm mb-3'>
               Use the Admin Panel to create and manage wiki articles through a visual editor.

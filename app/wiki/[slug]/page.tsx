@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import '../../styles/liquid-glass.css';
 import { 
   articles as hardcodedArticles, 
   wikiCategories, 
@@ -81,7 +82,7 @@ export default function WikiArticlePage() {
     .filter(Boolean) as WikiArticle[];
 
   return (
-    <div className='min-h-screen bg-[#1a1a1a] bg-[url("/images/back-2.jpg")] bg-cover bg-center bg-fixed'>
+    <div className='min-h-screen bg-[#050509] bg-[url("/images/back-2.jpg")] bg-cover bg-center bg-fixed'>
       <Navbar id={4}></Navbar>
 
       {/* Wiki Header */}
@@ -102,10 +103,10 @@ export default function WikiArticlePage() {
         </div>
       </div>
 
-      <div className='max-w-7xl mx-auto flex bg-[#1a1a1a]/95'>
+      <div className='max-w-7xl mx-auto flex lg-panel'>
         {/* Sidebar */}
-        <aside className='w-64 bg-[#2a2a2a] min-h-[calc(100vh-8rem)] border-r border-[#3a3a3a] hidden lg:block'>
-          <div className='p-4'>
+        <aside className='w-64 hidden lg:block'>
+          <div className='p-4 lg-card'>
             <Link href='/wiki' className='text-[#f5c518] font-bold mb-4 text-lg block hover:underline'>
               Wiki Home
             </Link>
@@ -158,7 +159,7 @@ export default function WikiArticlePage() {
             {/* Article Body */}
             <div className='flex-1 order-2 lg:order-1'>
               {/* Table of Contents */}
-              <div className='bg-[#2a2a2a] border border-[#3a3a3a] rounded p-4 mb-6 inline-block'>
+              <div className='lg-card p-4 mb-6 inline-block'>
                 <h3 className='font-bold text-white mb-2'>Contents</h3>
                 <ol className='list-decimal list-inside text-sm space-y-1'>
                   {article.sections.map((section, idx) => (
@@ -206,7 +207,7 @@ export default function WikiArticlePage() {
                       <Link
                         key={related.slug}
                         href={`/wiki/${related.slug}`}
-                        className='bg-[#2a2a2a] border border-[#3a3a3a] px-3 py-2 rounded text-[#8ab4f8] hover:bg-[#3a3a3a] transition-colors'
+                        className='lg-card px-3 py-2 rounded text-[#8ab4f8] hover:bg-[#3a3a3a] transition-colors'
                       >
                         {related.title}
                       </Link>
@@ -238,7 +239,7 @@ export default function WikiArticlePage() {
             {/* Infobox */}
             {article.infobox && (
               <div className='w-full lg:w-72 flex-shrink-0 order-1 lg:order-2'>
-                <div className='bg-[#2a2a2a] border border-[#3a3a3a] rounded overflow-hidden sticky top-24'>
+                <div className='lg-card rounded overflow-hidden sticky top-24'>
                   {/* Infobox Header */}
                   <div className='bg-[#f5c518] px-4 py-2'>
                     <h3 className='text-black font-bold text-center'>{article.title}</h3>
