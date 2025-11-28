@@ -55,20 +55,22 @@ const WikiHomePage: React.FC = () => {
     .slice(0, 4);
 
   return (
-    <div className='min-h-screen bg-[#1a1a1a]'>
+    <div className='min-h-screen bg-[#1a1a1a] bg-[url("/images/back-2.jpg")] bg-cover bg-center bg-fixed'>
       <Navbar id={4}></Navbar>
 
       {/* Wiki Header */}
-      <div className='bg-[#2a2a2a] border-b border-[#3a3a3a] pt-20 pb-4 px-4'>
-        <div className='max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4'>
-          <h1 className='text-2xl font-bold text-[#f5c518]'>The Hobbit 2003 Wiki</h1>
+      <div 
+        className='relative h-[240px] flex items-end'
+      >
+        <div className='relative z-10 w-full max-w-7xl mx-auto px-6 pb-6 flex items-center justify-between flex-wrap gap-4'>
+          <h1 className='text-3xl md:text-4xl font-bold text-[#f5c518]'>The Hobbit 2003 Wiki</h1>
           <div className='relative'>
             <input
               type='text'
               placeholder='Search wiki...'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className='bg-[#1a1a1a] border border-[#3a3a3a] rounded px-4 py-2 text-white w-64 focus:outline-none focus:border-[#f5c518]'
+              className='bg-[#1a1a1a]/80 border border-[#3a3a3a] rounded px-4 py-2 text-white w-64 focus:outline-none focus:border-[#f5c518]'
             />
             <span className='absolute right-3 top-1/2 -translate-y-1/2 text-gray-400'>🔍</span>
           </div>
@@ -77,7 +79,7 @@ const WikiHomePage: React.FC = () => {
 
       {/* Search Results */}
       {searchQuery && (
-        <div className='max-w-7xl mx-auto p-6'>
+        <div className='max-w-7xl mx-auto p-6 bg-[#1a1a1a]/95'>
           <h2 className='text-xl text-white mb-4'>
             Search results for "{searchQuery}" ({searchResults.length} found)
           </h2>
@@ -109,7 +111,7 @@ const WikiHomePage: React.FC = () => {
 
       {/* Main Content (shown when not searching) */}
       {!searchQuery && (
-        <div className='max-w-7xl mx-auto p-6'>
+        <div className='max-w-7xl mx-auto p-6 bg-[#1a1a1a]/95'>
           {/* Welcome Section */}
           <div className='bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg p-6 mb-8'>
             <h2 className='text-3xl font-serif text-white mb-4'>Welcome to The Hobbit 2003 Wiki</h2>

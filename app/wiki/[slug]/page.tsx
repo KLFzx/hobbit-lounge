@@ -81,25 +81,28 @@ export default function WikiArticlePage() {
     .filter(Boolean) as WikiArticle[];
 
   return (
-    <div className='min-h-screen bg-[#1a1a1a]'>
+    <div className='min-h-screen bg-[#1a1a1a] bg-[url("/images/back-2.jpg")] bg-cover bg-center bg-fixed'>
       <Navbar id={4}></Navbar>
 
       {/* Wiki Header */}
-      <div className='bg-[#2a2a2a] border-b border-[#3a3a3a] pt-20 pb-4 px-4'>
-        <div className='max-w-7xl mx-auto flex items-center justify-between'>
-          <div className='flex items-center gap-4'>
+      <div
+        className='relative h-[260px] flex items-end'
+      >
+
+        <div className='relative z-10 w-full max-w-7xl mx-auto px-6 pb-6 flex items-center justify-between'>
+          <div className='flex items-center gap-4 flex-wrap'>
             <Link href='/wiki' className='text-[#f5c518] hover:underline'>
               ← Wiki Home
             </Link>
             <span className='text-gray-500'>/</span>
             <span className='text-gray-400'>{article.category}</span>
             <span className='text-gray-500'>/</span>
-            <span className='text-white'>{article.title}</span>
+            <span className='text-white text-lg md:text-2xl font-bold'>{article.title}</span>
           </div>
         </div>
       </div>
 
-      <div className='max-w-7xl mx-auto flex'>
+      <div className='max-w-7xl mx-auto flex bg-[#1a1a1a]/95'>
         {/* Sidebar */}
         <aside className='w-64 bg-[#2a2a2a] min-h-[calc(100vh-8rem)] border-r border-[#3a3a3a] hidden lg:block'>
           <div className='p-4'>
