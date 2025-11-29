@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ensureNewsSchema, query } from '@/lib/db';
 
 const MAX_CALLS_PER_DAY = Number(process.env.NEWS_MAX_OPENROUTER_CALLS_PER_DAY ?? '10');
-const FRESHNESS_HOURS = Number(process.env.NEWS_FRESHNESS_HOURS ?? '6');
+const FRESHNESS_HOURS = Number(process.env.NEWS_FRESHNESS_HOURS ?? '1');
 
 // Simple pools from /public/images to decorate posts and users
 const NEWS_IMAGES = [
@@ -102,7 +102,7 @@ async function getTodayCallCount() {
 
 async function getLatestAiPostAgeHours() {
   const { rows } = await query<{ age_hours: number | null }>(
-    `SELECT EXTRACT(EPOCH FROM (NOW() - MAX(created_at))) / 60 AS age_hours
+    `SELECT EXTRACT(EPOCH FROM (NOW() - MAX(created_at))) / 3600 AS age_hours
      FROM news_posts
      WHERE source = 'ai';`,
   );
