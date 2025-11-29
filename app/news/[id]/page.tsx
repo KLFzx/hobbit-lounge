@@ -1,18 +1,61 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import { ReplyIcon, RepostIcon, LikeIcon } from '@/components/NewsIcons';
 import '../../styles/liquid-glass.css';
-import { sampleNews } from '../data';
+
+type NewsComment = {
+  id: string;
+  post_id: string;
+  content: string;
+  created_at: string;
+};
+
+type NewsPost = {
+  id: string;
+  content: string;
+  created_at: string;
+  source: string;
+};
 
 const NewsDetailPage: React.FC = () => {
   const params = useParams();
-  const id = Number(params.id);
-  const item = sampleNews.find((n) => n.id === id);
+  const id = params.id as string;
+  const [post, setPost] = useState<NewsPost | null>(null);
+  const [comments, setComments] = useState<NewsComment[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  if (!item) {
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await fetch(`/api/news/${id}`);
+        if (res.status === 404) {
+          setNotFound(true);
+          return;
+        }
+        if (!res.ok) throw new Error('Failed to load post');
+        const data = await res.json();
+        setPost(data.post);
+        setComments(data.comments ?? []);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    if (id) load();
+  }, [id]);
+
+  const formatTime = (iso: string) => {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return '';
+    return date.toLocaleString();
+  };
+
+  if (notFound) {
     return (
       <div className='min-h-screen bg-[#050509] text-white'>
         <Navbar id={7} />
@@ -21,6 +64,17 @@ const NewsDetailPage: React.FC = () => {
           <a href='/news' className='text-[#f5c518] hover:underline'>
             Return to News Feed
           </a>
+        </div>
+      </div>
+    );
+  }
+
+  if (loading || !post) {
+    return (
+      <div className='min-h-screen bg-[#050509] text-white'>
+        <Navbar id={7} />
+        <div className='pt-32 text-center'>
+          <p className='text-gray-400'>Loading...</p>
         </div>
       </div>
     );
@@ -60,8 +114,8 @@ const NewsDetailPage: React.FC = () => {
             <div className='flex-shrink-0'>
               <div className='h-12 w-12 rounded-full overflow-hidden border border-white/20 bg-black/40'>
                 <img
-                  src={item.avatar}
-                  alt={item.author}
+                  src='/images/logo.png'
+                  alt='Hobbit Lounge'
                   className='h-full w-full object-cover'
                 />
               </div>
@@ -69,43 +123,28 @@ const NewsDetailPage: React.FC = () => {
 
             <div className='flex-1 min-w-0'>
               <div className='flex items-center gap-2 text-sm'>
-                <span className='font-semibold truncate'>{item.author}</span>
-                <span className='text-gray-400 truncate'>{item.handle}</span>
+                <span className='font-semibold truncate'>Hobbit Lounge</span>
+                <span className='text-gray-400 truncate'>@hobbit_news</span>
                 <span className='text-gray-500'>•</span>
-                <span className='text-gray-400'>{item.time}</span>
-                {item.tag && (
-                  <span className='text-[11px] uppercase tracking-wide text-[#f5c518] ml-auto'>
-                    {item.tag}
-                  </span>
-                )}
+                <span className='text-gray-400'>{formatTime(post.created_at)}</span>
               </div>
 
               <p className='mt-3 text-sm md:text-[15px] leading-relaxed text-gray-100 whitespace-pre-line'>
-                {item.content}
+                {post.content}
               </p>
-
-              {item.image && (
-                <div className='mt-4 rounded-2xl overflow-hidden border border-white/10 max-h-96'>
-                  <img
-                    src={item.image}
-                    alt='News image'
-                    className='w-full h-full object-cover'
-                  />
-                </div>
-              )}
 
               <div className='mt-4 flex gap-6 text-xs text-gray-400'>
                 <span className='flex items-center gap-1'>
                   <ReplyIcon />
-                  <span>{item.stats.replies}</span>
+                  <span>{comments.length}</span>
                 </span>
                 <span className='flex items-center gap-1'>
                   <RepostIcon />
-                  <span>{item.stats.reposts}</span>
+                  <span>0</span>
                 </span>
                 <span className='flex items-center gap-1'>
                   <LikeIcon />
-                  <span>{item.stats.likes}</span>
+                  <span>0</span>
                 </span>
               </div>
             </div>
@@ -118,7 +157,7 @@ const NewsDetailPage: React.FC = () => {
 
           {item.comments && item.comments.length > 0 ? (
             <div className='space-y-4'>
-              {item.comments.map((comment) => (
+              {comments.map((comment: NewsComment) => (
                 <div key={comment.id} className='flex gap-3'>
                   <div className='flex-shrink-0 pt-1'>
                     <div className='h-9 w-9 rounded-full overflow-hidden border border-white/20 bg-black/40'>

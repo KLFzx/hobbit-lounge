@@ -1,13 +1,52 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { ReplyIcon, RepostIcon, LikeIcon } from '@/components/NewsIcons';
 import '../styles/liquid-glass.css';
-import { sampleNews } from './data';
+
+type NewsComment = {
+  id: string;
+  post_id: string;
+  content: string;
+  created_at: string;
+};
+
+type NewsPost = {
+  id: string;
+  content: string;
+  created_at: string;
+  source: string;
+  comments?: NewsComment[];
+};
 
 const NewsPage: React.FC = () => {
+  const [posts, setPosts] = useState<NewsPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await fetch('/api/news');
+        if (!res.ok) throw new Error('Failed to load news');
+        const data = await res.json();
+        setPosts(data.posts ?? []);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const formatTime = (iso: string) => {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return '';
+    return date.toLocaleString();
+  };
+
   return (
     <div className='min-h-screen bg-[#050509] bg-[url("/images/back-2.jpg")] bg-cover bg-center bg-fixed text-white'>
       <Navbar id={7} />
@@ -58,7 +97,13 @@ const NewsPage: React.FC = () => {
           </header>
 
           <div className='space-y-4 mt-4'>
-            {sampleNews.map((item) => (
+            {loading && (
+              <div className='text-sm text-gray-400'>Loading news...</div>
+            )}
+            {!loading && posts.length === 0 && (
+              <div className='text-sm text-gray-400'>No news posts yet.</div>
+            )}
+            {posts.map((item) => (
               <Link
                 key={item.id}
                 href={`/news/${item.id}`}
@@ -68,8 +113,8 @@ const NewsPage: React.FC = () => {
                   <div className='flex-shrink-0'>
                     <div className='h-11 w-11 rounded-full overflow-hidden border border-white/20 bg-black/40'>
                       <img
-                        src={item.avatar}
-                        alt={item.author}
+                        src='/images/logo.png'
+                        alt='Hobbit Lounge'
                         className='h-full w-full object-cover'
                       />
                     </div>
@@ -77,43 +122,28 @@ const NewsPage: React.FC = () => {
 
                   <div className='flex-1 min-w-0'>
                     <div className='flex items-center gap-2 text-sm'>
-                      <span className='font-semibold truncate'>{item.author}</span>
-                      <span className='text-gray-400 truncate'>{item.handle}</span>
+                      <span className='font-semibold truncate'>Hobbit Lounge</span>
+                      <span className='text-gray-400 truncate'>@hobbit_news</span>
                       <span className='text-gray-500'>·</span>
-                      <span className='text-gray-400'>{item.time}</span>
-                      {item.tag && (
-                        <span className='text-[11px] uppercase tracking-wide text-[#f5c518] ml-auto'>
-                          {item.tag}
-                        </span>
-                      )}
+                      <span className='text-gray-400'>{formatTime(item.created_at)}</span>
                     </div>
 
                     <p className='mt-2 text-sm md:text-[15px] leading-relaxed text-gray-100 whitespace-pre-line'>
                       {item.content}
                     </p>
 
-                    {item.image && (
-                      <div className='mt-3 rounded-2xl overflow-hidden border border-white/10 max-h-80'>
-                        <img
-                          src={item.image}
-                          alt='News image'
-                          className='w-full h-full object-cover'
-                        />
-                      </div>
-                    )}
-
                     <div className='mt-3 flex justify-between text-xs text-gray-400 max-w-sm'>
                       <button className='flex items-center gap-1 hover:text-[#8ab4f8] transition-colors'>
                         <ReplyIcon />
-                        <span>{item.stats.replies}</span>
+                        <span>{item.comments?.length ?? 0}</span>
                       </button>
                       <button className='flex items-center gap-1 hover:text-green-400 transition-colors'>
                         <RepostIcon />
-                        <span>{item.stats.reposts}</span>
+                        <span>0</span>
                       </button>
                       <button className='flex items-center gap-1 hover:text-pink-400 transition-colors'>
                         <LikeIcon />
-                        <span>{item.stats.likes}</span>
+                        <span>0</span>
                       </button>
                     </div>
                   </div>
