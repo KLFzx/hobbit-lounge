@@ -65,6 +65,7 @@ const POST_STYLES = [
   'in-universe town crier style proclamation',
   'chill late-night post from a tired traveller at an inn',
   'excited screenshot-style caption describing a cool moment',
+  'just random nonesense'
 ];
 
 
@@ -147,7 +148,9 @@ You will write EXACTLY 3 posts, each based on the following briefs:
 2) Character: ${characters[1]} | Topic: ${topics[1]} | Style: ${styles[1]}
 3) Character: ${characters[2]} | Topic: ${topics[2]} | Style: ${styles[2]}
 
-Each post should clearly feel like it is written by that character or a player strongly associated with them, staying in-universe.
+Each post should clearly feel like it is written by that character or a player strongly associated with them, staying in-universe, don't say who you are, move on straight to the point.
+
+Each post should have 3 to 7 comments.
 
 Return JSON ONLY, no markdown, with the following structure:
 [
@@ -176,8 +179,8 @@ Return JSON ONLY, no markdown, with the following structure:
 
 Rules:
 - author / handle: must be hobbit-world or Middle-earth inspired, but handles use modern style like a subreddit user (lowercase, no spaces, underscores allowed, must start with @).
-- content: 16 paragraphs, natural language, no markdown, no quotes around the whole text.
-- comments: 13 sentences each, conversational, no markdown.
+- content: 1 to 6 paragraphs, natural language, no markdown, no quotes around the whole text.
+- comments: 1 to 3 sentences each, conversational, no markdown.
 - No backticks, no explanation outside of the JSON array.`;
 
   const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
