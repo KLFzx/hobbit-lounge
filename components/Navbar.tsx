@@ -59,6 +59,16 @@ const Navbar: React.FC<{ id: number }> = ({ id }) => {
           Wiki
         </a>
       </div>
+      <div className='flex flex-col items-center'>
+        <a
+          className={`hover ${
+            id == 7 ? 'text-red-600' : 'text-white'
+          } `}
+          href='/news'
+        >
+          News
+        </a>
+      </div>
       <a
         className={`hover ${id == 5 ? 'text-red-600' : 'text-white'} `}
         href='/'
