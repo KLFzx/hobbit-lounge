@@ -19,6 +19,10 @@ type NewsPost = {
   created_at: string;
   source: string;
   comments?: NewsComment[];
+  image?: string | null;
+  author?: string | null;
+  handle?: string | null;
+  avatar?: string | null;
 };
 
 const NewsPage: React.FC = () => {
@@ -113,8 +117,8 @@ const NewsPage: React.FC = () => {
                   <div className='flex-shrink-0'>
                     <div className='h-11 w-11 rounded-full overflow-hidden border border-white/20 bg-black/40'>
                       <img
-                        src='/images/logo.png'
-                        alt='Hobbit Lounge'
+                        src={item.avatar || '/images/logo.png'}
+                        alt={item.author || 'Hobbit user'}
                         className='h-full w-full object-cover'
                       />
                     </div>
@@ -122,8 +126,8 @@ const NewsPage: React.FC = () => {
 
                   <div className='flex-1 min-w-0'>
                     <div className='flex items-center gap-2 text-sm'>
-                      <span className='font-semibold truncate'>Hobbit Lounge</span>
-                      <span className='text-gray-400 truncate'>@hobbit_news</span>
+                      <span className='font-semibold truncate'>{item.author || 'Hobbit Fan'}</span>
+                      <span className='text-gray-400 truncate'>{item.handle || '@hobbit_news'}</span>
                       <span className='text-gray-500'>·</span>
                       <span className='text-gray-400'>{formatTime(item.created_at)}</span>
                     </div>
@@ -131,6 +135,16 @@ const NewsPage: React.FC = () => {
                     <p className='mt-2 text-sm md:text-[15px] leading-relaxed text-gray-100 whitespace-pre-line'>
                       {item.content}
                     </p>
+
+                    {item.image && (
+                      <div className='mt-3 rounded-2xl overflow-hidden border border-white/10 max-h-80'>
+                        <img
+                          src={item.image}
+                          alt='News image'
+                          className='w-full h-full object-cover'
+                        />
+                      </div>
+                    )}
 
                     <div className='mt-3 flex justify-between text-xs text-gray-400 max-w-sm'>
                       <button className='flex items-center gap-1 hover:text-[#8ab4f8] transition-colors'>

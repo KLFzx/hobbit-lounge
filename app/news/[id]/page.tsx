@@ -11,6 +11,9 @@ type NewsComment = {
   post_id: string;
   content: string;
   created_at: string;
+  author?: string | null;
+  handle?: string | null;
+  avatar?: string | null;
 };
 
 type NewsPost = {
@@ -18,6 +21,10 @@ type NewsPost = {
   content: string;
   created_at: string;
   source: string;
+  image?: string | null;
+  author?: string | null;
+  handle?: string | null;
+  avatar?: string | null;
 };
 
 const NewsDetailPage: React.FC = () => {
@@ -114,8 +121,8 @@ const NewsDetailPage: React.FC = () => {
             <div className='flex-shrink-0'>
               <div className='h-12 w-12 rounded-full overflow-hidden border border-white/20 bg-black/40'>
                 <img
-                  src='/images/logo.png'
-                  alt='Hobbit Lounge'
+                  src={post.avatar || '/images/logo.png'}
+                  alt={post.author || 'Hobbit user'}
                   className='h-full w-full object-cover'
                 />
               </div>
@@ -123,8 +130,8 @@ const NewsDetailPage: React.FC = () => {
 
             <div className='flex-1 min-w-0'>
               <div className='flex items-center gap-2 text-sm'>
-                <span className='font-semibold truncate'>Hobbit Lounge</span>
-                <span className='text-gray-400 truncate'>@hobbit_news</span>
+                <span className='font-semibold truncate'>{post.author || 'Hobbit Fan'}</span>
+                <span className='text-gray-400 truncate'>{post.handle || '@hobbit_news'}</span>
                 <span className='text-gray-500'>•</span>
                 <span className='text-gray-400'>{formatTime(post.created_at)}</span>
               </div>
@@ -132,6 +139,16 @@ const NewsDetailPage: React.FC = () => {
               <p className='mt-3 text-sm md:text-[15px] leading-relaxed text-gray-100 whitespace-pre-line'>
                 {post.content}
               </p>
+
+              {post.image && (
+                <div className='mt-4 rounded-2xl overflow-hidden border border-white/10 max-h-96'>
+                  <img
+                    src={post.image}
+                    alt='News image'
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+              )}
 
               <div className='mt-4 flex gap-6 text-xs text-gray-400'>
                 <span className='flex items-center gap-1'>
@@ -155,15 +172,15 @@ const NewsDetailPage: React.FC = () => {
         <section className='lg-card p-5'>
           <h2 className='text-lg font-semibold mb-4'>Comments</h2>
 
-          {item.comments && item.comments.length > 0 ? (
+          {comments.length > 0 ? (
             <div className='space-y-4'>
               {comments.map((comment: NewsComment) => (
                 <div key={comment.id} className='flex gap-3'>
                   <div className='flex-shrink-0 pt-1'>
                     <div className='h-9 w-9 rounded-full overflow-hidden border border-white/20 bg-black/40'>
                       <img
-                        src={comment.avatar}
-                        alt={comment.author}
+                        src={comment.avatar || '/images/logo.png'}
+                        alt={comment.author || 'Comment author'}
                         className='h-full w-full object-cover'
                       />
                     </div>
@@ -171,10 +188,10 @@ const NewsDetailPage: React.FC = () => {
 
                   <div className='flex-1 min-w-0 pb-4 border-b border-white/5 last:border-b-0'>
                     <div className='flex items-center gap-2 text-xs md:text-sm'>
-                      <span className='font-medium truncate'>{comment.author}</span>
-                      <span className='text-gray-400 truncate'>{comment.handle}</span>
+                      <span className='font-medium truncate'>{comment.author || 'Hobbit Fan'}</span>
+                      <span className='text-gray-400 truncate'>{comment.handle || '@hobbit_news'}</span>
                       <span className='text-gray-500'>•</span>
-                      <span className='text-gray-400'>{comment.time}</span>
+                      <span className='text-gray-400'>{formatTime(comment.created_at)}</span>
                     </div>
                     <p className='mt-1 text-xs md:text-sm text-gray-100 whitespace-pre-line'>
                       {comment.content}
@@ -196,7 +213,7 @@ const NewsDetailPage: React.FC = () => {
             <div className='flex gap-3'>
               <div className='hidden sm:block'>
                 <div className='h-9 w-9 rounded-full overflow-hidden border border-white/20 bg-black/40'>
-                  <img src={item.avatar} alt='' className='h-full w-full object-cover' />
+                  <img src='/images/logo.png' alt='' className='h-full w-full object-cover' />
                 </div>
               </div>
               <div className='flex-1'>
