@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ensureNewsSchema, query } from '@/lib/db';
 
 const MAX_CALLS_PER_DAY = Number(process.env.NEWS_MAX_OPENROUTER_CALLS_PER_DAY ?? '10');
-const FRESHNESS_HOURS = Number(process.env.NEWS_FRESHNESS_HOURS ?? '1');
+const FRESHNESS_HOURS = 1;
 
 // Simple pools from /public/images to decorate posts and users
 const NEWS_IMAGES = [
